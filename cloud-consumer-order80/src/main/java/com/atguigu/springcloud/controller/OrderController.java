@@ -16,8 +16,9 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-
-    public static final String PAYMENT_URL="http://localhost:8001";
+    //  要想使用这个 服务名 去访问  需使用 @LoadBalanced注解 赋予RestTemplate负载均衡的能力
+//    CLOUD-PAYMENT-SERVICE  微服务名称
+    public static final String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;

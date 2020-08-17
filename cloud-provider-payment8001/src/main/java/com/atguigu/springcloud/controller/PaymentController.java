@@ -4,6 +4,7 @@ import com.atguigu.springcloud.entity.CommonResult;
 import com.atguigu.springcloud.entity.Payment;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -34,10 +35,10 @@ public class PaymentController {
 
     @GetMapping("discovery")
     public Object discovery() {
-//        获取服务列表
+//        获取服务列表对应 注册中心上有几个微服务
         List<String> services = this.discoveryClient.getServices();
         for (String service : services) {
-            log.info("*********server:{0}", service);
+            log.info("*********server:{}", service);
         }
 //        获取该微服务下的全部实例
         List<ServiceInstance> instances = this.discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");

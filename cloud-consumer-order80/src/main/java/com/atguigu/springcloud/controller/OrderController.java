@@ -32,4 +32,8 @@ public class OrderController {
     public CommonResult<Payment> getPaymentById(@PathVariable Long id) {
         return this.restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
     }
+    @GetMapping("consumer/payment/getForEntity/{id}")
+    public CommonResult<Payment> getPaymentById2(@PathVariable Long id) {
+        return this.restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class ).getBody();
+    }
 }

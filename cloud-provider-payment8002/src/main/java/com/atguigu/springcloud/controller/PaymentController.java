@@ -69,4 +69,8 @@ public class PaymentController {
         return new CommonResult(200,"查询成功---------serverPort"+serverPort,result);
     }
 
+    @GetMapping("/lb")
+    public String getServerPort(){
+        return this.serverPort;
+    }
 }
